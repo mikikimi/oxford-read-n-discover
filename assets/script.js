@@ -21,6 +21,11 @@ $(document).ready(function() {
       $('#playPauseAudio').removeClass('playing');
       audioState = 0;
     });
+    $(this).on('ended', function() {
+      if (curPlaying >= audioArr.length - 1) return;
+      curPlaying++;
+      audioArr[curPlaying].play();
+    });
   });
 
   $('#playPauseAudio').on('click', function() {
