@@ -41,12 +41,15 @@ img {
   overflow: hidden;
   display: inline-block;
 }
+
 .two-images li {
   float: left;
 }
+
 .two-images li:nth-child(2n) {
   clear: right;
 }
+
 .two-images li:nth-child(2n+1) {
   clear: left;
 }
@@ -69,6 +72,7 @@ li {
   max-width: 800px;
   width: 100%;
 }
+
 .audio-heading:hover {
   background: #333;
 }
@@ -127,6 +131,7 @@ p {
   border-radius: 50% !important;
   padding: 16px 17px;
 }
+
 .btn-rate.active {
   background: #091d31 !important;
 }
@@ -167,12 +172,24 @@ p {
     font-weight: 400;
   }
 
-  .to-top-form {
-    width: 50px;
-  }
-
   button.btn-close {
     display: none;
+  }
+
+  .to-top-form {
+    padding: 5px;
+  }
+
+  .audio-heading {
+    padding: 10px;
+    max-width: none;
+    font-size: 22px;
+  }
+
+  .btn-media,
+  .btn-rate,
+  .btn-top {
+    padding: 10px;
   }
 }
 
