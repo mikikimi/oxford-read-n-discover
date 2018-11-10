@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  let curPlaying = 1;
+  let curPlaying = 0;
   let audioState = 0;
   let audioArr = $('audio');
   let curSpeed = 1.0;
