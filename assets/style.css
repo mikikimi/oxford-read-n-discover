@@ -78,10 +78,15 @@ li {
 }
 
 .audio-tracks {
-  display: none;
+  height: 0;
+  overflow: hidden;
   max-width: 800px;
   width: 100%;
   margin: 0 auto 20px;
+}
+
+.audio-tracks.expanded {
+  height: auto;
 }
 
 .audio {
@@ -89,6 +94,22 @@ li {
   max-width: 100%;
   width: 100%;
   margin: 10px auto;
+}
+
+audio.isFixedTop {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.85);
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  box-shadow: 0 3px 2px #ccc;
+  /* border-radius: 30px; */
+  padding: 5px;
+  margin: 0 auto;
+  height: 64px;
+  z-index: 2;
+  max-width: 700px;
 }
 
 .num-of-track {

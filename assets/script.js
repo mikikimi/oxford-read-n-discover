@@ -10,6 +10,8 @@ $(document).ready(function() {
       if (curPlaying != -1 && curPlaying != index) {
         audioArr[curPlaying].pause();
       }
+      let $this = $(this);
+      $this.addClass('isFixedTop');
       setTimeout(function() {
         $('#playPauseAudio').addClass('playing');
         curPlaying = index;
@@ -19,6 +21,7 @@ $(document).ready(function() {
     });
     $(this).on('pause', function() {
       $('#playPauseAudio').removeClass('playing');
+      $(this).removeClass('isFixedTop');
       audioState = 0;
     });
     $(this).on('ended', function() {
@@ -118,7 +121,7 @@ $(document).ready(function() {
   });
 
   $('[data-toggle-audio]').on('click', function(){
-    $('[data-audio-content]').toggle();
+    $('[data-audio-content]').toggleClass('expanded');
   });
 
 });
