@@ -54,10 +54,8 @@ img {
   clear: left;
 }
 
-.rotate-up {
-  img {
-    transform: rotate(-90deg);
-  }
+.rotate-up img 
+  transform: rotate(-90deg);
 }
 
 li {
