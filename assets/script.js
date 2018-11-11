@@ -49,7 +49,7 @@ $(document).ready(function() {
   });
 
   $('#btnIncrease').on('click', function() {
-    if (curSpeed >= 1.5) return;
+    if (curSpeed >= 1.8) return;
     curSpeed += 0.1;
     $('#curSpeed').text(curSpeed.toFixed(1));
     $.each(audioArr, function() {

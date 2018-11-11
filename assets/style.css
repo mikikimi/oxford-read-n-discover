@@ -54,6 +54,12 @@ img {
   clear: left;
 }
 
+.rotate-up {
+  img {
+    tran
+  }
+}
+
 li {
   position: relative;
   margin: 0 0 10px;
