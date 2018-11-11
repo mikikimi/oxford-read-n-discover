@@ -93,7 +93,8 @@ li {
   overflow: hidden;
   max-width: 800px;
   width: 100%;
-  margin: 0 auto 20px;
+  margin: 20px auto;
+  padding: 0;
 }
 
 .audio-tracks.expanded {
