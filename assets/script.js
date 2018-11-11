@@ -16,7 +16,7 @@ $(document).ready(function() {
       setTimeout(function() {
         $('#playPauseAudio').addClass('playing');
         audioState = 1;
-        $('#playingFile').text($('.audio-tracks li').eq(index).find('span').text());
+        $('#playingFile').text($('.audio-tracks li').eq(index).find('span, p').text());
       }, 10);
     });
     $(this).on('pause', function() {

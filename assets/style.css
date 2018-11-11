@@ -56,7 +56,7 @@ img {
 
 .rotate-up {
   img {
-    tran
+    transform: rotate(-90deg);
   }
 }
 
