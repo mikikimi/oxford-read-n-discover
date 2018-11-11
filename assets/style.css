@@ -53,10 +53,17 @@ img {
 .two-images li:nth-child(2n+1) {
   clear: left;
 }
-
-.rotate-up img 
-  transform: rotate(-90deg);
+/*.rotate-up p {
+  position: relative;
+  height: 0;
+  padding-top: 74%;
 }
+
+.rotate-up img {
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 0;
+}*/
 
 li {
   position: relative;
