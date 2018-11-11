@@ -10,18 +10,20 @@ $(document).ready(function() {
       if (curPlaying != -1 && curPlaying != index) {
         audioArr[curPlaying].pause();
       }
+      curPlaying = index;
       let $this = $(this);
       $this.addClass('isFixedTop');
       setTimeout(function() {
         $('#playPauseAudio').addClass('playing');
-        curPlaying = index;
         audioState = 1;
         $('#playingFile').text($('.audio-tracks li').eq(index).find('span').text());
       }, 10);
     });
     $(this).on('pause', function() {
       $('#playPauseAudio').removeClass('playing');
-      $(this).removeClass('isFixedTop');
+      if (curPlaying !== index) {
+        $(this).removeClass('isFixedTop');
+      }
       audioState = 0;
     });
     $(this).on('ended', function() {
