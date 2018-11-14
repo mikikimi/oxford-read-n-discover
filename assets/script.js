@@ -5,6 +5,10 @@ $(document).ready(function() {
   let curSpeed = 1.0;
   let loop = false;
 
+  let myLazyLoad = new LazyLoad({
+    elements_selector: "img"
+  });
+
   $.each(audioArr, function(index) {
     $(this).on('play', function() {
       if (curPlaying != -1 && curPlaying != index) {
