@@ -279,6 +279,15 @@ p {
 
   .to-top-form {
     padding: 5px;
+    left: -90px;
+    opacity: .5;
+    width: 100px;
+    text-align: center;
+  }
+
+  .to-top-form:hover {
+    left: 0;
+    opacity: 1;
   }
 
   .audio-heading {
@@ -290,7 +299,8 @@ p {
   .btn-media,
   .btn-rate,
   .btn-top {
-    padding: 10px 11px;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
