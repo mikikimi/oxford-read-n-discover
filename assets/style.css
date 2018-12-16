@@ -153,7 +153,8 @@ li.isFixedTop audio {
   max-width: 700px;
 }
 
-li.isFixedTop span{
+li.isFixedTop p,
+li.isFixedTop span {
   font-size: 18px;
   display: block;
   font-weight: bold;
