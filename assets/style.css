@@ -255,7 +255,7 @@ p {
   }
 }
 
-@media screen and (max-width: 1240px) {
+@media screen and (max-width: 1299px) {
   body {
     padding: 0 15px;
   }
