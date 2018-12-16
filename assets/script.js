@@ -22,6 +22,7 @@ $(document).ready(function() {
 
   const itemList = $('ul.list li');
   let itemHeight;
+  let scrollGap;
 
   setTimeout(function() {
     console.clear();
@@ -33,6 +34,12 @@ $(document).ready(function() {
 
     setTimeout(function() {
       console.log(document.body.scrollTop);
+      if ($(window).outerWidth() > 1440) {
+        scrollGap = itemHeight;
+      } else {
+        scrollGap = $(window).outerHeight() - 10;
+      }
+      console.log('scrollGap', scrollGap);
     }, 101);
   }, 1000);
 
@@ -60,7 +67,7 @@ $(document).ready(function() {
       }, 0);
     } else {
       $('html, body').animate({
-        scrollTop: next ? (currentScroll + itemHeight) : (currentScroll - itemHeight)
+        scrollTop: next ? (currentScroll + scrollGap) : (currentScroll - scrollGap)
       }, 0);
     }
   }
