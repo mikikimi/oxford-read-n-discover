@@ -16,6 +16,8 @@ h1 {
 
 .back-btn {
   margin-left: 100px;
+  position: relative;
+  z-index: 21;
 }
 
 h6 {
