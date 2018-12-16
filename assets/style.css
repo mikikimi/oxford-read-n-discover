@@ -83,7 +83,7 @@ li {
   position: fixed;
   top: 100px;
   left: 100px;
-  right: 0;
+  right: 100px;
   bottom: 100px;
   z-index: 10;
   display: flex;
@@ -141,11 +141,14 @@ li.isFixedTop {
   right: 0;
   width: 100%;
   box-shadow: 0 3px 2px #ccc;
-  z-index: 2;
-  max-width: 700px;
+  z-index: 20;
   opacity: 0;
   padding: 5px 10px;
   margin: 0 auto;
+}
+
+li.isFixedTop audio {
+  max-width: 700px;
 }
 
 li.isFixedTop span{
@@ -279,7 +282,7 @@ p {
 
   .to-top-form {
     padding: 5px;
-    left: -90px;
+    left: -80px;
     opacity: .5;
     width: 100px;
     text-align: center;
