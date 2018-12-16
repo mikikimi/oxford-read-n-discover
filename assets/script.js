@@ -27,13 +27,13 @@ $(document).ready(function() {
   setTimeout(function() {
     console.clear();
     itemHeight = itemList.eq(1).outerHeight();
-    console.log(itemHeight);
+    console.log(itemHeight, $(window).outerHeight());
     $('html, body').animate({
       scrollTop: itemList.eq(0).offset().top
     }, 100);
 
     setTimeout(function() {
-      scrollGap = itemHeight > $(window).outerHeight() - 10 ? $(window).outerHeight() - 10 : itemHeight;
+      scrollGap = itemHeight > $(window).outerHeight() + 20 ? $(window).outerHeight() - 10 : itemHeight;
     }, 101);
   }, 1000);
 
@@ -55,7 +55,7 @@ $(document).ready(function() {
   function scrollTo(next) {
     const currentScroll = document.body.scrollTop;
 
-    if (currentScroll <= itemList.eq(0).offset().top) {
+    if (currentScroll < itemList.eq(0).offset().top -10) {
       $('html, body').animate({
         scrollTop: itemList.eq(0).offset().top
       }, 0);
