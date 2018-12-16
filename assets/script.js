@@ -33,13 +33,7 @@ $(document).ready(function() {
     }, 100);
 
     setTimeout(function() {
-      console.log(document.body.scrollTop);
-      if ($(window).outerWidth() > 1440) {
-        scrollGap = itemHeight;
-      } else {
-        scrollGap = $(window).outerHeight() - 10;
-      }
-      console.log('scrollGap', scrollGap);
+      scrollGap = itemHeight > $(window).outerHeight() - 10 ? $(window).outerHeight() - 10 : itemHeight;
     }, 101);
   }, 1000);
 
@@ -61,7 +55,7 @@ $(document).ready(function() {
   function scrollTo(next) {
     const currentScroll = document.body.scrollTop;
 
-    if (currentScroll < itemList.eq(0).offset().top) {
+    if (currentScroll <= itemList.eq(0).offset().top) {
       $('html, body').animate({
         scrollTop: itemList.eq(0).offset().top
       }, 0);
