@@ -14,6 +14,10 @@ h1 {
   padding: 0 0 20px;
 }
 
+.back-btn {
+  margin-left: 100px;
+}
+
 h6 {
   text-align: center;
   font-size: 18px;
@@ -28,6 +32,7 @@ ul {
   padding: 0 0 30px;
   font-size: 14px;
   border-bottom: 1px dotted #eee;
+  overflow: hidden;
 }
 
 img {
@@ -53,6 +58,7 @@ img {
 .two-images li:nth-child(2n+1) {
   clear: left;
 }
+
 /*.rotate-up p {
   position: relative;
   height: 0;
@@ -67,10 +73,29 @@ img {
 
 li {
   position: relative;
-  margin: 0 0 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px dotted #eee;
+  margin: 0;
+  padding: 5px 0 15px;
+  /*border-bottom: 1px dotted #eee;*/
   overflow: hidden;
+}
+
+.nav {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  right: 0;
+  bottom: 100px;
+  z-index: 10;
+  display: flex;
+}
+
+.nav .btn {
+  opacity: 0;
+  width: 50%;
+}
+
+.nav .btn-prev {
+  width: 
 }
 
 .audio-heading {
@@ -108,24 +133,44 @@ li {
   margin: 10px auto;
 }
 
-audio.isFixedTop {
+li.isFixedTop {
   position: fixed;
-  background: rgba(255, 255, 255, 0.85);
-  top: 0;
+  background: #fff;
+  bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
   box-shadow: 0 3px 2px #ccc;
-  /* border-radius: 30px; */
-  padding: 5px;
-  margin: 0 auto;
-  height: 64px;
   z-index: 2;
   max-width: 700px;
+  opacity: 0;
+  padding: 5px 10px;
+  margin: 0 auto;
+}
+
+li.isFixedTop span{
+  font-size: 18px;
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+li.isFixedTop:hover {
+  opacity: 1;
+}
+
+audio.isFixedTop {
+  padding: 0;
+  margin: 0 auto;
 }
 
 .num-of-track {
-  width: 100px;
+  width: 45px;
+  margin-left: -5px;
+  margin-left: -5px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 /*p.number:after {
@@ -134,35 +179,46 @@ audio.isFixedTop {
 
 p {
   margin-bottom: 0;
-  margin-top: 5px;
+  margin-top: 0;
   font-size: 16px;
 }
 
 .to-top-form {
   width: auto;
-  display: block;
+  display: flex;
+  align-items: center;
   position: fixed;
   left: 0;
-  right: 0;
   bottom: 0;
+  top: 0;
   text-align: center;
-  padding: 10px;
+  padding: 0 2px;
   box-shadow: 0 -2px 2px #ccc;
   background: rgba(255, 255, 255, 0.9);
+  width: 60px;
+}
+
+.audio-controls {
+  display: block;
+  width: 100%;
 }
 
 .btn-group {
   margin: 0 10px;
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
+}
+
+#playingFile {
+  display: block;
 }
 
 .btn-media,
 .btn-rate,
 .btn-top {
-  margin: 0 5px;
+  margin: 10px auto;
   border-radius: 50% !important;
-  padding: 16px 17px;
+  padding: 9px 10px;
+  display: block;
 }
 
 .btn-rate.active {
@@ -170,9 +226,10 @@ p {
 }
 
 .speed-rate {
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
   padding-right: 10px;
+  margin-top: 30px;
+  text-align: center;
 }
 
 .btn-media .fa-pause {
@@ -187,13 +244,17 @@ p {
   display: none;
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1441px) {
   img {
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
+    width: auto;
+    height: calc(100vh - 10px);
+    margin: 0 auto;
   }
 }
+
 @media screen and (max-width: 1240px) {
   body {
     padding: 0 15px;

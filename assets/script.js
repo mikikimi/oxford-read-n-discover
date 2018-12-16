@@ -9,6 +9,61 @@ $(document).ready(function() {
     elements_selector: "img"
   });
 
+
+  function isScrolledIntoView(elem) {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+  }
+
+  const itemList = $('ul.list li');
+  let itemHeight;
+
+  setTimeout(function() {
+    console.clear();
+    itemHeight = itemList.eq(1).outerHeight();
+    console.log(itemHeight);
+    $('html, body').animate({
+      scrollTop: itemList.eq(0).offset().top
+    }, 100);
+
+    setTimeout(function() {
+      console.log(document.body.scrollTop);
+    }, 101);
+  }, 1000);
+
+  $('.btn-prev').on('click', function() {
+    scrollTo();
+  });
+
+  $('.btn-next').on('click', function() {
+    scrollTo(true);
+  });
+
+  $(document).on('keydown', function(e) {
+    if (e.key == "ArrowDown" || e.key == "ArrowUp") {
+      e.preventDefault();
+      scrollTo(e.key == "ArrowDown");
+    }
+  });
+
+  function scrollTo(next) {
+    const currentScroll = document.body.scrollTop;
+
+    if (currentScroll < itemList.eq(0).offset().top) {
+      $('html, body').animate({
+        scrollTop: itemList.eq(0).offset().top
+      }, 0);
+    } else {
+      $('html, body').animate({
+        scrollTop: next ? (currentScroll + itemHeight) : (currentScroll - itemHeight)
+      }, 0);
+    }
+  }
   $.each(audioArr, function(index) {
     $(this).on('play', function() {
       if (curPlaying != -1 && curPlaying != index) {
@@ -17,6 +72,7 @@ $(document).ready(function() {
       curPlaying = index;
       let $this = $(this);
       $this.addClass('isFixedTop');
+      $this.parent().addClass('isFixedTop');
       setTimeout(function() {
         $('#playPauseAudio').addClass('playing');
         audioState = 1;
@@ -27,6 +83,7 @@ $(document).ready(function() {
       $('#playPauseAudio').removeClass('playing');
       if (curPlaying !== index) {
         $(this).removeClass('isFixedTop');
+        $(this).parent().removeClass('isFixedTop');
       }
       audioState = 0;
     });
@@ -71,9 +128,9 @@ $(document).ready(function() {
   });
 
   $('#btnLoop').on('click', function() {
-    let $this= $(this);
+    let $this = $(this);
     if (!loop) {
-      $this.addClass('active');  
+      $this.addClass('active');
       loop = true;
       $.each(audioArr, function() {
         this.loop = true;
@@ -126,7 +183,7 @@ $(document).ready(function() {
     audioArr[curPlaying].play();
   });
 
-  $('[data-toggle-audio]').on('click', function(){
+  $('[data-toggle-audio]').on('click', function() {
     $('[data-audio-content]').toggleClass('expanded');
   });
 
